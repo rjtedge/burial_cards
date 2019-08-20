@@ -1,25 +1,27 @@
-# This is a template for a Ruby scraper on morph.io (https://morph.io)
-# including some code snippets below that you should find helpful
+require 'mechanize'
+require 'scraperwiki'
 
-# require 'scraperwiki'
-# require 'mechanize'
-#
-# agent = Mechanize.new
-#
-# # Read in a page
-# page = agent.get("http://foo.com")
-#
-# # Find somehing on the page using css selectors
-# p page.at('div.content')
-#
-# # Write out to the sqlite database using scraperwiki library
-# ScraperWiki.save_sqlite(["name"], {"name" => "susan", "occupation" => "software developer"})
-#
-# # An arbitrary query against the database
-# ScraperWiki.select("* from data where 'name'='peter'")
+agent = Mechanize.new
+urlbase = 'https://www.dutchjewry.org/phpr/amsterdam/port_isr_gem_burials/amsterdam_port_isr_gem_burials_view.php?editid1='
 
-# You don't have to do things with the Mechanize or ScraperWiki libraries.
-# You can use whatever gems you want: https://morph.io/documentation/ruby
-# All that matters is that your final data is written to an SQLite database
-# called "data.sqlite" in the current working directory which has at least a table
-# called "data".
+pagenum = 1
+
+while pagenum <= 27680
+  page = agent.get(urlbase + pagenun.to_s)
+  burialdate = page.at('.fieldvalue_begraafdatum').inner_text.strip
+  archivecardnum = page.at('.fieldvalue_archiefkaartnummer').inner_text.strip
+  familyfnameone = page.at('.fieldvalue_familienaam_1').inner_text.strip
+  familyfnametwo = page.at('.fieldvalue_familienaam_2').inner_text.strip
+  firstname = page.at('.fieldvalue_voornaam').inner_text.strip
+   
+  record  = {
+       recordnumber: pagenum,
+       burialdate: burialdate,
+       archivecardnum: beds,
+       familyfnameone: baths,
+       familyfnametwo: cars,
+       firstname: agents
+     }    
+      ScraperWiki.save_sqlite([:recordnumber], record )
+  pagenum += 1
+end
