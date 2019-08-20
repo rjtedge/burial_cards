@@ -17,10 +17,10 @@ while pagenum <= 27680
   record  = {
        recordnumber: pagenum,
        burialdate: burialdate,
-       archivecardnum: beds,
-       familyfnameone: baths,
-       familyfnametwo: cars,
-       firstname: agents
+       archivecardnum: archivecardnum,
+       familyfnameone: familyfnameone,
+       familyfnametwo: familyfnametwo,
+       firstname: firstname
      }    
       ScraperWiki.save_sqlite([:recordnumber], record )
   pagenum += 1
