@@ -7,7 +7,7 @@ urlbase = 'https://www.dutchjewry.org/phpr/amsterdam/port_isr_gem_burials/amster
 pagenum = 1
 
 while pagenum <= 27680
-  page = agent.get(urlbase + pagenun.to_s)
+  page = agent.get(urlbase + pagenum.to_s)
   burialdate = page.at('.fieldvalue_begraafdatum').inner_text.strip
   archivecardnum = page.at('.fieldvalue_archiefkaartnummer').inner_text.strip
   familyfnameone = page.at('.fieldvalue_familienaam_1').inner_text.strip
