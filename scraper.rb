@@ -21,8 +21,10 @@ while pagenum <= 27854
   page.at('.fieldvalue_rij') == nil ? (row = "") : (row = page.at('.fieldvalue_rij').inner_text.strip)
   page.at('.fieldvalue_graf') == nil ? (grave = "") : (grave = page.at('.fieldvalue_graf').inner_text.strip)
 
-  gravestonephotourl = ""
-  if page.at('.fieldvalue_foto_grafsteen_aanwezig img').values[0] == "images/check_yes.gif"
+    gravestonephotourl = ""
+  if page.at('.fieldvalue_foto_grafsteen_aanwezig img') == nil 
+    gravestonephotourl = ""
+  else page.at('.fieldvalue_foto_grafsteen_aanwezig img').values[0] == "images/check_yes.gif"
     p gravestonephotourl = page.at('.fieldvalue_grafsteen_1 img').attributes['src'].value
   end
 
