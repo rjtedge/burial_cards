@@ -4,7 +4,7 @@ require 'scraperwiki'
 agent = Mechanize.new
 urlbase = 'https://www.dutchjewry.org/phpr/amsterdam/port_isr_gem_burials/amsterdam_port_isr_gem_burials_view.php?editid1='
 
-pagenum = 1
+pagenum = 10316
 
 while pagenum <= 27854
   if pagenum % 50 == 0 
