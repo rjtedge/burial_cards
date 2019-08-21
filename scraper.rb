@@ -25,7 +25,7 @@ while pagenum <= 27854
   if page.at('.fieldvalue_foto_grafsteen_aanwezig img') == nil 
     gravestonephotourl = ""
   else page.at('.fieldvalue_foto_grafsteen_aanwezig img').values[0] == "images/check_yes.gif"
-    p gravestonephotourl = page.at('.fieldvalue_grafsteen_1 img').attributes['src'].value
+    gravestonephotourl = page.at('.fieldvalue_grafsteen_1 img').attributes['src'].value
   end
 
    
